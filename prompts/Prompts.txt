@@ -1,0 +1,12 @@
+| Technique              | Examples Provided?                    | Best For                     | Difficulty |
+| ---------------------- | ------------------------------------- | ---------------------------- | ---------- |
+| Zero-Shot              | ❌ No                                 | Simple tasks                 | Easy       |
+| Few-Shot               | ✅ Yes                                | Pattern learning, formatting | Medium     |
+| Chain of Thought (CoT) | Optional (plus reasoning instruction)  | Math, logic, planning        | Medium     |
+| Persona Prompting      | ❌ No (assigns a role)                | Expert-style responses       | Easy       |
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> df4c332 (Project Building in rag Folder)

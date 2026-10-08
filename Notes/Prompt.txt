@@ -1,0 +1,19 @@
+Zeroshot prompting  --:::::--
+Activate the virtual environment in python -: .venv\Scripts\activate  
+cd go to the current directory
+python few.python
+
+by using the few shot prompting you can binding the output strcture and 
+
+Chain of Thought Prompting -::::::::::::::::::::::::::::::::
+
+how the llm Thought like human brain 
+system prompt
+"
+set of rule or ideas
+
+"
+ 
+
+
+

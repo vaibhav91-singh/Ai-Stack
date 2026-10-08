@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website AI Assistant</title>
+    <!-- Linked external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <div class="glass-card">
+        <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; color: #fff;">🌐 Globe AI Crawler</h1>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 28px;">Extract website insights and query content using Gemini AI.</p>
+
+        <form id="scrapeForm">
+            <div class="input-group">
+                <label>WEBSITE URL</label>
+                <input type="url" id="urlInput" required placeholder="https://example.com/article">
+            </div>
+
+            <div class="input-group">
+                <label>YOUR QUESTION / INSTRUCTIONS</label>
+                <textarea id="questionInput" required rows="3" placeholder="e.g., Summarize this page or what are the key takeaways?"></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn-primary">
+                Analyze Website
+            </button>
+        </form>
+
+        <div id="loading" class="loader">
+            ✨ Crawling page content and consulting Gemini AI...
+        </div>
+
+        <div id="resultContainer" class="result-box">
+            <div class="result-title">AI Analysis Result</div>
+            <div id="answerOutput" class="result-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('scrapeForm');
+        const loading = document.getElementById('loading');
+        const resultContainer = document.getElementById('resultContainer');
+        const answerOutput = document.getElementById('answerOutput');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const url = document.getElementById('urlInput').value;
+            const question = document.getElementById('questionInput').value;
+
+            loading.style.display = 'block';
+            resultContainer.style.display = 'none';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.5';
+
+            try {
+                const response = await fetch('/api/ask-website', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url, question })
+                });
+
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.detail || 'Something went wrong');
+
+                answerOutput.textContent = data.answer;
+                resultContainer.style.display = 'block';
+            } catch (err) {
+                answerOutput.textContent = `Error: ${err.message}`;
+                resultContainer.style.display = 'block';
+            } finally {
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>

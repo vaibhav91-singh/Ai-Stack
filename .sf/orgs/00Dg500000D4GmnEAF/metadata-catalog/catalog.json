@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "orgId": "00Dg500000D4GmnEAF",
+<<<<<<< HEAD
+  "writtenAt": "2026-08-31T08:09:46.446Z",
+  "generation": 40,
+=======
+  "writtenAt": "2026-10-08T15:23:09.677Z",
+  "generation": 2931,
+>>>>>>> df4c332 (Project Building in rag Folder)
+  "inventory": [],
+  "sobjects": {
+    "descriptions": []
+  },
+  "tracking": [],
+  "metadataTypes": [],
+  "metadataListings": []
+}

@@ -1,0 +1,6 @@
+services:
+    vector-db:
+        image: qdrant/qdrant
+        ports:
+            - 6379:6379
+

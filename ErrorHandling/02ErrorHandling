@@ -1,0 +1,8 @@
+def flexible_processor(value):
+    try:
+        result = 100 / int(value)
+        return result
+    except (ValueError, TypeError, ZeroDivisionError) as e:
+        print(f"Error occurred: {e}")
+        return None
+    
